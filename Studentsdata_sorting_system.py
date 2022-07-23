@@ -1,34 +1,34 @@
 print("-----Program for Student Information at Uganda Christian University-----")
 
-D = dict()
+Dict_storage = dict()
 
-n = int(input('How many student record you want to store?? '))
+number_of_students = int(input('How many student record you want to store?? '))
 
 # Add student information
 # to the dictionary
-for i in range(0,n):
+for i in range(0,number_of_students):
 	x, y = input("Enter the complete name (First and last name) of student: ").split()
-	z = input("Enter contact number: ")
-	m = input('Enter Marks: ')
-	D[x, y] = (z, m)
+	contact = input("Enter contact number: ")
+	marks = input('Enter Marks: ')
+	Dict_storage[x, y] = (contact, marks)
 	
 # define a function for shorting
 # names based on first name
 def sort():
-	ls = list()
+	list_storage = list()
 	# fetch key and value using
 	# items() method
-	for sname,details in D.items():
+	for sname,details in Dict_storage.items():
 	
 		# store key parts as an tuple
-		tup = (sname[0],sname[1])
+		tuple_storage = (sname[0],sname[1])
 		
 		# add tuple to the list
-		ls.append(tup)
+		list_storage.append(tuple_storage)
 		
 	# sort the final list of tuples
-	ls = sorted(ls)
-	for i in ls:
+	list_storage = sorted(list_storage)
+	for i in list_storage:
 	
 		# print first name and second name
 		print(i[0],i[1])
@@ -38,16 +38,16 @@ def sort():
 # finding the minimum marks
 # in stored data
 def minmarks():
-	ls = list()
+	list_storage = list()
 	# fetch key and value using
 	# items() methods
-	for sname,details in D.items():
+	for sname,details in Dict_storage.items():
 		# add details second element
 		# (marks) to the list
-		ls.append(details[1])
+		list_storage.append(details[1])
 	
 	# sort the list elemnts
-	ls = sorted(ls)
+	list_storage = sorted(ls)
 	print("Minimum marks: ", min(ls))
 	
 	return
@@ -55,14 +55,14 @@ def minmarks():
 # define a function for searching
 # student contact number
 def searchdetail(fname):
-	ls = list()
+	list_storage = list()
 	
-	for sname,details in D.items():
+	for sname,details in Dict_storage.items():
 	
 		tup=(sname,details)
-		ls.append(tup)
+		list_storage.append(tup)
 		
-	for i in ls:
+	for i in list_storage:
 		if i[0][0] == fname:
 			print(i[1][0])
 	return
@@ -81,9 +81,9 @@ def option():
 	if choice == 1:
 		# function call
 		sort()
-		print('Want to perform some other operation??? Y or N: ')
+		choice = input('Want to perform some other operation??? Y or N: ')
 		inp = input()
-		if inp == 'Y':
+		if choice == 'Y':
 			option()
 			
 		# exit function call
@@ -91,9 +91,9 @@ def option():
 		
 	elif choice == 2:
 		minmarks()
-		print('Want to perform some other operation??? Y or N: ')
+		choice = input('Want to perform some other operation??? Y or N: ')
 		
-		inp = input()
+		choice = input()
 		if inp == 'Y':
 			option()
 		exit()
@@ -102,9 +102,9 @@ def option():
 		first = input('Enter first name of student: ')
 		searchdetail(first)
 		
-		print('Want to perform some other operation??? Y or N: ')
-		inp = input()
-		if inp == 'Y':
+		choice = input('Want to perform some other operation??? Y or N: ')
+		
+		if choice == 'Y':
 			option()
 			
 		exit()
