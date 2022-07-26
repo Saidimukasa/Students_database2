@@ -1,3 +1,3 @@
 # Students_database2
 Allows data extraction
-The data is generally
+The code is a python code that stores data that uses diffrent 
